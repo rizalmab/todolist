@@ -1,11 +1,16 @@
 import express from "express";
+import data from './todos.json'
+import cors from 'cors'
+
 const app = express();
 const port = 3000;
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+app.use(cors())
+
+app.get("/todos", (req, res) => {
+  res.status(200).json({data})
 });
 
 app.listen(port, () => {
-  return console.log(`Express is listening at http://localhost:${port}`);
+  return console.log(`📳 Express is listening at http://localhost:${port}`);
 });

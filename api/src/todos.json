@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "description": "Eat breakfast",
+        "isDone": false
+    },
+    {
+        "id": 2,
+        "description": "Eat lunch",
+        "isDone": false
+    },
+    {
+        "id": 3,
+        "description": "Eat dinner",
+        "isDone": false
+    }
+]
