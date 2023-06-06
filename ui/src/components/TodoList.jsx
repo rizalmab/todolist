@@ -1,24 +1,27 @@
 import ListGroup from "react-bootstrap/ListGroup";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-function ListItem({ item }) {
+function TodoItem({ item }) {
   return <ListGroup.Item>{item}</ListGroup.Item>;
 }
 
 function TodoList() {
+  const [todos, setTodos] = useState([])
+  
   useEffect(() => {
-    async function fetchTodos() {
-      const response = await fetch('http://localhost:3000/todos')
-      return response.data
+    const fetchTodos = async () => {
+      fetch('http://localhost:3000/todos').then(res => res.json()).then(data => {
+        setTodos(data.data)
+      })
     }
-
-    const todos = fetchTodos()
-    console.log(todos)
+    
+    fetchTodos()
   }, [])
 
   return (
     <ListGroup>
-      <ListItem item={"Cras justo odio"} />
+      {/* <TodoItem item={"Cras justo odio"} /> */}
+      {todos.length > 0 && todos.map((t) => (<TodoItem item={t.description} key={t.id}/>))}
     </ListGroup>
   );
 }
