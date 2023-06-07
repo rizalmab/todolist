@@ -1,16 +1,12 @@
-import express from "express";
 // import data from './todos.json'
-import cors from 'cors'
-import {getTodos} from './controllers/index.js'
+const express = require('express')
+const cors = require('cors')
+const {getTodos} = require('./controllers/index.ts')
 
 const app = express();
 const port = 3000;
 
 app.use(cors())
-
-// app.get("/todos", (req, res) => {
-//   res.status(200).json({data})
-// });
 
 app.get("/todos", getTodos);
 
