@@ -25,6 +25,7 @@
     "@aws-sdk/client-dynamodb": "^3.345.0",
     "@aws-sdk/lib-dynamodb": "^3.345.0",
     "cors": "^2.8.5",
+    "dotenv": "^16.1.4",
     "express": "^4.17.1"
   }
 }
